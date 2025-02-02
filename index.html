@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            xs: "370px",
+            // => @media (min-width: 370px) { ... }
+
+            sm: "640px",
+            // => @media (min-width: 640px) { ... }
+
+            md: "768px",
+            // => @media (min-width: 768px) { ... }
+
+            lg: "1024px",
+            // => @media (min-width: 1024px) { ... }
+
+            xl: "1280px",
+            // => @media (min-width: 1280px) { ... }
+          },
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              vscodebg: "#0D1117",
+              textclr: "#c3d0e5",
+              lghtblutxt: "#9FB1D1",
+              navoptionsclr: "#9ba3b4",
+              crdclr: "#9FB1D1",
+              crdbg: "#25292E",
+              iconcrd: "rgba(255,255,255,0.04)",
+              lstcrd: "rgba(255,255,255,0.07)",
+              btnblu: "#0078d4",
+              cpltbg: "#25292E",
+            },
+            fontFamily: {},
+          },
+        },
+      };
+    </script>
+    <title>vscode clone</title>
+  </head>
+  <body class="bg-vscodebg">
+    <div>
+      <!--navbar-->
+      <nav class="flex items-center justify-between h-20 px-5 lg:px-20">
+        <!--left-->
+        <div class="flex lg:ml-5 hover:cursor-pointer items-center">
+          <img
+            src="/images/2442f8e6dbd772f0cf1dad8d803399bc.png"
+            alt=""
+            class="w-[25px]"
+          />
+          <h1
+            class="text-textclr lg:text-2xl md:text-2xl sm:text-xl xs:text-xl font-semibold ml-2"
+          >
+            Visual Studio Code
+          </h1>
+        </div>
+        <!--center-->
+        <div
+          class="text-navoptionsclr font-semibold flex items-center ml-20 gap-5 lg:flex md:hidden sm:hidden xs:hidden"
+        >
+          <div class="hover:cursor-pointer hover:text-gray-300">Docs</div>
+          <div class="hover:cursor-pointer hover:text-gray-300">Updates</div>
+          <div class="hover:cursor-pointer hover:text-gray-300">Blog</div>
+          <div class="hover:cursor-pointer hover:text-gray-300">API</div>
+          <div class="hover:cursor-pointer hover:text-gray-300">Extensions</div>
+          <div class="hover:cursor-pointer hover:text-gray-300">FAQ</div>
+          <div class="hover:cursor-pointer hover:text-gray-300">
+            GitHub Copilot
+          </div>
+        </div>
+        <!--right-->
+        <div class="flex gap-2 items-center">
+          <img
+            src="/images/theme-light.svg"
+            alt=""
+            class="w-[40px] h-[40px] hover:cursor-pointer hover:bg-gray-800 px-2 py-1 rounded-md lg:flex md:hidden sm:hidden xs:hidden"
+          />
+          <div
+            class="text-navoptionsclr border border-gray-800 rounded-sm px-2 py-1 flex items-center gap-3 lg:flex md:hidden sm:hidden xs:hidden"
+          >
+            <i
+              class="fa-solid fa-magnifying-glass hover:cursor-pointer hover:text-gray-300"
+            ></i>
+            <p class="mr-20">Search Docs</p>
+          </div>
+          <div class="lg:flex md:hidden sm:hidden xs:hidden">
+            <button
+              class="text-white font-semibold bg-btnblu rounded-sm px-5 py-1 hover:cursor-pointer hover:bg-blue-600"
+            >
+              Download
+            </button>
+          </div>
+          <div class="lg:hidden md:flex sm:flex xs:flex lg:mr-2">
+            <i
+              class="fa-solid fa-bars text-navoptionsclr text-2xl hover:cursor-pointer hover:bg-gray-800 px-2 py-1 rounded-md"
+            ></i>
+          </div>
+        </div>
+      </nav>
+      <!--center link-->
+      <div class="text-lghtblutxt flex justify-center">
+        <section class="flex items-center font-semibold gap-2">
+          <i class="fa-solid fa-rocket"></i>
+          <h1>
+            Get
+            <span class="underline text-blue-400 hover:cursor-pointer"
+              >GitHub Copilot Free</span
+            >
+            in VS Code!
+          </h1>
+        </section>
+      </div>
+      <!--heading-->
+      <div
+        class="text-textclr flex justify-center lg:text-7xl md:text-4xl sm:text-4xl xs:text-4xl font-bold mt-10 xs:ml-10"
+      >
+        <h1
+          class="flex justify-center lg:w-[700px] md:w-[800px] sm:w-[350px] xs:w-[350px]"
+        >
+          Your code editor. Redefined with AI.
+        </h1>
+      </div>
+      <!--major buttons-->
+      <div
+        class="flex items-center justify-center mt-10 gap-4 text-white font-semibold lg:text-xl"
+      >
+        <!--button 1-->
+        <button
+          class="bg-btnblu text-white px-5 py-2 rounded-sm hover:bg-blue-600 hover:cursor-pointer"
+        >
+          Download for Windows
+        </button>
+        <!--button 2-->
+        <button
+          class="border border-gray-500 bg-cpltbg text-white px-5 py-2 rounded-sm hover:bg-gray-700 hover:cursor-pointer"
+        >
+          Get Copilot Free
+        </button>
+      </div>
+      <!--extra links-->
+      <div
+        class="text-lghtblutxt lg:text-sm text-xs flex justify-center font-semibold mt-3"
+      >
+        <p>
+          <span class="underline text-blue-400 hover:cursor-pointer">Web, </span
+          ><span class="underline text-blue-400 hover:cursor-pointer"
+            >Insiders edition,</span
+          >
+          or
+          <span class="underline text-blue-400 hover:cursor-pointer"
+            >other platforms</span
+          >
+        </p>
+      </div>
+      <!--main screen-->
+      <main class="grow">
+        <div class="flex justify-center relative px-5 lg:px-10">
+          <img
+            src="/images/hero-background.webp"
+            alt=""
+            class="w-[1200px] mt-12 rounded-lg z-[-1]"
+          />
+          <div
+            class="flex justify-center absolute lg:top-[115px] right-70 px-10 lg:px-10 top-[70px]"
+          >
+            <img
+              src="/images/Screenshot_29-1-2025_122825_code.visualstudio.com.jpeg"
+              alt=""
+              class="w-[1050px] rounded-lg"
+            />
+          </div>
+        </div>
+      </main>
+      <!--replay-->
+      <div class="flex justify-center">
+        <p
+          class="text-lghtblutxt text-xl font-semibold flex justify-center mt-5"
+        >
+          Replay
+        </p>
+      </div>
+      <!--three cards-->
+      <div
+        class="flex lg:flex-row md:flex-row sm:flex-col xs:flex-col mt-20 lg:px-40 px-5 gap-10"
+      >
+        <!--card 1-->
+        <div
+          class="flex justify-center flex-col border border-gray-500 lg:w-[450px] md:w-[350px] rounded-lg p-5 bg-iconcrd"
+        >
+          <h2 class="text-textclr text-lg font-bold">
+            Choose the model that works for you
+          </h2>
+          <p class="text-lghtblutxt mt-2 font-semibold">
+            Pick the model that works best for your project and team, including
+            GPT 4o and Claude Sonnet.
+          </p>
+          <img
+            src="/images/choose-model-dark.webp"
+            alt=""
+            class="w-[400px] md:mt-5"
+          />
+        </div>
+        <!--card 2-->
+        <div
+          class="flex justify-center flex-col border border-gray-500 lg:w-[450px] md:w-[350px] rounded-lg p-5 bg-iconcrd"
+        >
+          <h2 class="text-textclr text-lg font-bold mt-2">
+            An expert on your codebase
+          </h2>
+          <p class="text-lghtblutxt mt-2 font-semibold">
+            Copilot locally indexes your codebase to understand what’s relevant
+            and supplements that context to interactions with Copilot.
+          </p>
+          <img
+            src="/images/multi-file-dark.webp"
+            alt=""
+            class="w-[400px] mt-5"
+          />
+        </div>
+        <!--card 3-->
+        <div
+          class="flex justify-center flex-col border border-gray-500 lg:w-[450px] md:w-[350px] rounded-lg p-5 bg-iconcrd"
+        >
+          <h2 class="text-textclr text-lg font-bold">
+            Personalized to your needs
+          </h2>
+          <p class="text-lghtblutxt mt-2 font-semibold">
+            Copilot works the way you do. Customize Copilot's prompts with
+            details about your team's workflows, tools, and projects.
+          </p>
+          <img
+            src="/images/instructions-dark.webp"
+            alt=""
+            class="w-[400px] mt-5"
+          />
+        </div>
+      </div>
+      <!--copilot-->
+      <div class="flex justify-center lg:px-20 p-5 mt-10 relative">
+        <img
+          src="/images/copilot-free-banner-bg-dark.webp"
+          alt=""
+          class="w-[1200px] md:h-[170px] sm:h-[150px] xs:h-[230px] rounded-lg z-[-1]"
+        />
+        <div
+          class="flex gap-60 justify-between w-[300px] sm:w-[480px] absolute top-[60px] lg:left-[200px] md:w-[250px] md:top-[70px] md:left-[30px] sm:left-[35px] xs:top-[40px] xs:left-[30px]"
+        >
+          <h2 class="text-white text-2xl font-semibold w-[500px]">
+            Activate Copilot Free in Visual Studio Code
+          </h2>
+          <div
+            class="flex flex-col gap-2 absolute lg:left-[600px] lg:top-[5px] md:left-[380px] lg:w-[500px] md:top-[5px] md:w-[350px] sm:top-[50px] sm:w-[430px] xs:top-[100px] xs:w-[400px]"
+          >
+            <div class="text-white font-semibold">
+              No trial. No credit card required. Just your GitHub account.
+            </div>
+            <div>
+              <button
+                class="text-textclr border border-gray-500 lg:px-4 lg:py-2 xs:px-2 xs:py-0.5 rounded-md font-semibold bg-cpltbg hover:bg-gray-700 hover:cursor-pointer"
+              >
+                Get Copilot Free
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--section 1-->
+      <div
+        class="flex lg:flex-row md:flex-row sm:flex-col xs:flex-col justify-between gap-20 lg:px-40 px-5"
+      >
+        <!--create faster-->
+        <div class="lg:mt-20 md:mt-10 lg:w-[950px] md:w-[3500px]">
+          <h2 class="text-textclr text-3xl font-semibold">Create faster</h2>
+          <p class="text-lghtblutxt mt-5 font-semibold">
+            Describe what you want to build in natural language, and Copilot
+            Edits takes care of the rest. Copilot Edits makes changes across
+            files in your codebase with a UI designed for rapid iteration. It's
+            the fastest way to add new functionality to your apps.
+          </p>
+          <p
+            class="text-blue-400 hover:cursor-pointer underline mt-5 font-semibold"
+          >
+            Build with Copilot Edits
+          </p>
+          <p class="text-lghtblutxt mt-5 font-semibold">
+            Copilot Chat is an expert on your codebase, helping you to answer
+            questions, explain code, and propose fixes. Chat is available
+            wherever you need it - either as a dedicated sidebar panel or
+            directly from within your code so you can stay in context.
+          </p>
+          <p
+            class="text-blue-400 hover:cursor-pointer underline mt-5 font-semibold"
+          >
+            Get answers from Copilot Chat
+          </p>
+        </div>
+        <!--ss-->
+        <div class="lg:mt-5 md:mt-40">
+          <img
+            src="/images/swimlane-chat-dark.webp"
+            alt=""
+            class="rounded-lg lg:w-[1800px] md:w-[3200px]"
+          />
+        </div>
+      </div>
+      <!--section 2-->
+      <div
+        class="flex lg:flex-row md:flex-row sm:flex-col xs:flex-col justify-between gap-20 lg:px-40 px-5 md:mt-10"
+      >
+        <!--code efficiently-->
+        <div class="lg:mt-60 md:mt-10 xs:mt-10 lg:w-[950px] md:w-[3500px]">
+          <h2 class="text-textclr text-3xl font-semibold">Code efficiently</h2>
+          <p class="text-lghtblutxt mt-5 font-semibold">
+            Copilot is your AI pair programmer infused directly into the editor.
+            Just start typing, and Copilot will complete your thought by
+            offering a completion on the current line or (sometimes) a whole new
+            block of code. Just like a coworker, you have the flexibility to
+            accept all, some, or none of Copilot's suggestions. Copilot supports
+            a broad range of languages and frameworks.
+          </p>
+          <p
+            class="text-blue-400 hover:cursor-pointer underline mt-5 font-semibold"
+          >
+            Pair program with Copilot
+          </p>
+        </div>
+        <!--ss-->
+        <div class="lg:mt-20 md:mt-20">
+          <img
+            src="/images/completions-dark.webp"
+            alt=""
+            class="rounded-lg lg:w-[1800px] md:w-[3200px]"
+          />
+        </div>
+      </div>
+      <!--section 3-->
+      <div
+        class="flex lg:flex-row md:flex-row sm:flex-col xs:flex-col justify-between lg:gap-40 md:gap-10 lg:px-40 px-5 md:mt-10"
+      >
+        <!--code with extensions-->
+        <div class="lg:mt-40 md:mt-20 xs:mt-10 lg:w-[300px] md:w-[350px]">
+          <h2 class="text-textclr text-3xl font-semibold">
+            Code with Extensions
+          </h2>
+          <p class="text-lghtblutxt mt-5 font-semibold">
+            Extensions let you customize VS Code and Copilot with AI-powered
+            features grounded securely in your team's data and workflows. Grab
+            one from the gallery and add it to chat like @azure, or
+            <span class="text-blue-400 hover:cursor-pointer underline"
+              >build your own Copilot extension</span
+            >
+            to power your team's unique scenarios.
+          </p>
+        </div>
+        <!--programming languages in grids-->
+        <div
+          class="lg:mt-20 md:mt-10 xs:mt-10 grid grid-cols-3 gap-2 lg:gap-5"
+        >
+         <div
+            class="flex items-center justify-center gap-2 border border-gray-700 bg-iconcrd hover:cursor-pointer hover:border-gray-600 lg:h-[120px] md:h-[80px] xs:h-[80px] md:w-[100px] lg:w-[230px] px-5 py-5 rounded-lg"
+          >
+            <div class="">
+              <img
+                src="/images/python-extension.png"
+                alt=""
+                class="lg:w-[150px] sm:w-[50px] xs:w-[50px]"
+              />
+            </div>
+            <div
+              class="lg:w-[500px] lg:flex hidden lg:flex-col"
+            >
+              <h2 class="text-textclr font-bold">Python</h2>
+              <p class="text-lghtblutxt text-sm font-semibold">
+                Adds rich language support for Python
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-center gap-2 border border-gray-700 bg-iconcrd hover:cursor-pointer hover:border-gray-600 lg:h-[120px] md:h-[80px] xs:h-[80px] md:w-[100px] lg:w-[230px] px-5 py-5 rounded-lg"
+          >
+            <div class="">
+              <img
+                src="/images/stripe-extension.png"
+                alt=""
+                class="rounded-lg lg:w-[150px] sm:w-[50px] xs:w-[50px]"
+              />
+            </div>
+            <div
+              class="lg:w-[500px] lg:flex hidden lg:flex-col"
+            >
+              <h2 class="text-textclr font-bold">Stripe</h2>
+              <p class="text-lghtblutxt text-sm font-semibold">
+                Build, test, and use Stripe inside your editor
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-center gap-2 border border-gray-700 bg-iconcrd hover:cursor-pointer hover:border-gray-600 lg:h-[120px] md:h-[80px] xs:h-[80px] md:w-[100px] lg:w-[230px] px-5 py-5 rounded-lg"
+          >
+            <div class="">
+              <img
+                src="/images/c-extension.png"
+                alt=""
+                class="lg:w-[150px] sm:w-[50px] xs:w-[50px]"
+              />
+            </div>
+            <div
+              class="lg:w-[500px] lg:flex hidden lg:flex-col"
+            >
+              <h2 class="text-textclr font-bold">C/C++</h2>
+              <p class="text-lghtblutxt text-sm font-semibold">
+                Adds rich language support for C/C++
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-center gap-2 border border-gray-700 bg-iconcrd hover:cursor-pointer hover:border-gray-600 lg:h-[120px] md:h-[80px] xs:h-[80px] md:w-[100px] lg:w-[230px] px-5 py-5 rounded-lg"
+          >
+            <div class="">
+              <img
+                src="/images/jupyter-extension.png"
+                alt=""
+                class="rounded-lg lg:w-[150px] sm:w-[50px] xs:w-[50px]"
+              />
+            </div>
+            <div
+              class="lg:w-[500px] lg:flex hidden lg:flex-col"
+            >
+              <h2 class="text-textclr font-bold">Jupyter</h2>
+              <p class="text-lghtblutxt text-sm font-semibold">
+                Language support for Jupyter Notebooks
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-center gap-2 border border-gray-700 bg-iconcrd hover:cursor-pointer hover:border-gray-600 lg:h-[120px] md:h-[80px] xs:h-[80px] md:w-[100px] lg:w-[230px] px-5 py-5 rounded-lg"
+          >
+            <div>
+              <img
+                src="/images/gitlens-extension.png"
+                alt=""
+                class="lg:w-[180px] sm:w-[50px] xs:w-[50px]"  
+              />
+            </div>
+            <div
+              class="lg:w-[500px] lg:flex hidden lg:flex-col"
+            >
+              <h2 class="text-textclr font-bold">GitLens</h2>
+              <p class="text-lghtblutxt text-sm font-semibold">
+                Supercharge you Git experience
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-center gap-2 border border-gray-700 bg-iconcrd hover:cursor-pointer hover:border-gray-600 lg:h-[120px] md:h-[80px] xs:h-[80px] md:w-[100px] lg:w-[230px] px-5 py-5 rounded-lg"
+          >
+            <div class="">
+              <img
+                src="/images/cs-dev-kit-extension.png"
+                alt=""
+                class="lg:w-[150px] sm:w-[50px] xs:w-[50px]"
+              />
+            </div>
+            <div
+              class="lg:w-[500px] lg:flex hidden lg:flex-col"
+            >
+              <h2 class="text-textclr font-bold">C# Dev Kit</h2>
+              <p class="text-lghtblutxt text-sm font-semibold">
+                Powerful tools for C# environment
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-center gap-2 border border-gray-700 bg-iconcrd hover:cursor-pointer hover:border-gray-600 lg:h-[130px] md:h-[80px] xs:h-[80px] md:w-[100px] lg:w-[230px] px-5 py-5 rounded-lg opacity-50"
+          >
+            <div class="">
+              <img
+                src="/images/mongodb-extension.png"
+                alt=""
+                class="lg:w-[200px] sm:w-[50px] xs:w-[50px]"
+              />
+            </div>
+            <div
+              class="lg:w-[500px] lg:flex hidden lg:flex-col"
+            >
+              <h2 class="text-textclr font-bold">MongoDB</h2>
+              <p class="text-lghtblutxt text-sm font-semibold">
+                Extensions for the @MongoDB agent
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-center gap-2 border border-gray-700 bg-iconcrd hover:cursor-pointer hover:border-gray-600 lg:h-[130px] md:h-[80px] xs:h-[80px] md:w-[100px] lg:w-[230px] px-5 py-5 rounded-lg opacity-50"
+          >
+            <div class="">
+              <img
+                src="/images/azure.png"
+                alt=""
+                class="lg:w-[150px] sm:w-[50px] xs:w-[50px]"  
+              />
+            </div>
+            <div
+              class="lg:w-[500px] lg:flex hidden lg:flex-col"
+            >
+              <h2 class="text-textclr font-bold">GitHub Copilot for Azure</h2>
+              <p class="text-lghtblutxt text-sm font-semibold">
+                Streamline the process of developing for Azure
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-center gap-2 border border-gray-700 bg-iconcrd hover:cursor-pointer hover:border-gray-600 lg:h-[130px] md:h-[80px] xs:h-[80px] md:w-[100px] lg:w-[230px] px-5 py-5 rounded-lg opacity-50"
+          >
+            <div class="">
+              <img
+                src="/images/remote-extension.png"
+                alt=""
+                class="lg:w-[150px] sm:w-[50px] xs:w-[50px]"
+              />
+            </div>
+            <div
+              class="lg:w-[500px] lg:flex hidden lg:flex-col" 
+            >
+              <h2 class="text-textclr font-bold">Remote Development</h2>
+              <p class="text-lghtblutxt text-sm font-semibold">
+                Open folders in a container on a remote machine
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--extra links-->
+      <div
+        class="lg:px-40 flex items-center justify-end text-lghtblutxt text-xs lg:text-sm font-semibold"
+      >
+        <p class="mt-5 lg:mr-48 md:mr-10 sm:mr-40 xs:mr-28">
+          View 60k+ extensions in the
+          <span class="underline text-blue-400">Extension Marketplace</span>
+        </p>
+      </div>
+      <!--section 4-->
+      <div
+        class="flex sm:flex-col md:flex-row xs:flex-col lg:flex-row justify-between gap-10 lg:px-40 px-5 lg:mt-20 md:mt-10"
+      >
+        <!--code in any language-->
+        <div class="lg:w-[300px] md:w-[300px] mt-10 md:mt-20">
+          <p class="text-3xl font-semibold text-textclr">
+            Code in any language
+          </p>
+          <p class="text-lghtblutxt font-semibold mt-5">
+            VS Code supports almost every major programming language. Several
+            ship in the box, like JavaScript, TypeScript, CSS, and HTML, but
+            extensions for others can be found in the VS Code Marketplace.
+          </p>
+        </div>
+        <!--languages-->
+        <div
+          class="grid grid-cols-2 lg:grid-cols-3 grid-flow-row lg:gap-10 lg:w-[600px] md:gap-3 md:w-[300px] sm:gap-3 xs:ml-10 text-textclr font-mono md:mt-10"
+        >
+          <div class="flex items-center">
+            <img class="h-10" src="/images/language-js.png" alt="" />JavaScript
+          </div>
+          <div class="flex items-center">
+            <img class="h-10" src="/images/language-ts.png" alt="" />TypeScript
+          </div>
+          <div class="flex items-center">
+            <img class="h-10" src="/images/language-python.png" alt="" />Python
+          </div>
+          <div class="flex items-center">
+            <img class="h-10" src="/images/language-cs.png" alt="" />C#
+          </div>
+          <div class="flex items-center">
+            <img class="h-10" src="/images/language-cpp.png" alt="" />C++
+          </div>
+          <div class="flex items-center">
+            <img class="h-10" src="/images/language-html.png" alt="" />HTML
+          </div>
+          <div class="flex items-center">
+            <img class="h-10" src="/images/language-java.png" alt="" />Java
+          </div>
+          <div class="flex items-center">
+            <img class="h-10" src="/images/language-json.png" alt="" />JSON
+          </div>
+          <div class="flex items-center">
+            <img class="h-10" src="/images/language-php.png" alt="" />PHP
+          </div>
+          <div class="flex items-center">
+            <img
+              class="h-10"
+              src="/images/language-markdown.png"
+              alt=""
+            />Markdown
+          </div>
+          <div class="flex items-center">
+            <img
+              class="h-10"
+              src="/images/language-powershell.png"
+              alt=""
+            />Powershell
+          </div>
+          <div class="flex items-center">
+            <img class="h-10" src="/images/language-yaml.png" alt="" />YAML
+          </div>
+        </div>
+      </div>
+      <!--section 5-->
+      <div
+        class="flex lg:flex-row md:flex-row sm:flex-col xs:flex-col justify-between lg:px-40 px-5 lg:gap-40 md:gap-10 mt:10 md:mt-20 sm:mt-10 xs:mt-10"
+      >
+        <!--fully customizable-->
+        <div class="lg:w-[900px] md:w-[1600px] lg:mt-20">
+          <h2 class="text-textclr text-3xl font-semibold">
+            Fully customizable
+          </h2>
+          <p class="text-lghtblutxt font-semibold mt-5">
+            Customize your VS Code UI and layout so that it fits your coding
+            style.
+          </p>
+          <p class="text-lghtblutxt font-semibold mt-10">
+            <span class="text-blue-400 underline hover:cursor-pointer"
+              >Color themes</span
+            >
+            let you modify the colors in VS Code's user interface to suit your
+            preferences and work environment.
+          </p>
+          <p class="text-lghtblutxt font-semibold mt-10">
+            <span class="text-blue-400 underline hover:cursor-pointer"
+              >Settings Sync</span
+            >
+            enables you to share your user settings across your VS Code
+            instances with the Settings Sync feature.
+          </p>
+          <p class="text-lghtblutxt font-semibold mt-10">
+            <span class="text-blue-400 underline hover:cursor-pointer"
+              >Profiles</span
+            >
+            let you create sets of customizations and quickly switch between
+            them or share them with others.
+          </p>
+        </div>
+        <!--ss-->
+        <div class="md:mt-28 sm:mt-10 xs:mt-10">
+          <img
+            src="/images/swimlane-customized.png"
+            alt=""
+            class="rounded-lg lg:w-[1800px] md:w-[2200px]"
+          />
+        </div>
+      </div>
+      <!--section 6-->
+      <div
+        class="flex lg:flex-row md:flex-row sm:flex-col xs:flex-col justify-between lg:px-40 px-5 lg:gap-40 md:gap-10 mt-10 md:mt-20"
+      >
+        <!--code anywhere-->
+        <div class="lg:w-[900px] md:w-[1600px] lg:mt-20">
+          <h2 class="text-textclr text-3xl font-semibold">Code anywhere</h2>
+          <p class="text-lghtblutxt font-semibold mt-5">
+            Code wherever you're most productive, whether you're connected to
+            the cloud, a remote repository, or in the browser with VS Code for
+            the Web (vscode.dev).
+          </p>
+          <p class="text-lghtblutxt font-semibold mt-5">
+            <span class="text-blue-400 underline hover:cursor-pointer"
+              >Built-in Source Control</span
+            >
+            empowers you with Git support out-of-the-box. Many other source
+            control providers are available through extensions.
+          </p>
+          <p class="text-lghtblutxt font-semibold mt-5">
+            <span class="text-blue-400 underline hover:cursor-pointer"
+              >GitHub Codespaces</span
+            >
+            provides cloud-powered development environments for any activity -
+            whether it's a long-term project, or a short-term task like
+            reviewing a pull request.
+          </p>
+        </div>
+        <!--ss-->
+        <div class="md:mt-20 sm:mt-10 xs:mt-10">
+          <img
+            src="/images/swimlane-anywhere.png"
+            alt=""
+            class="rounded-lg lg:w-[1800px] md:w-[2200px]"
+          />
+        </div>
+      </div>
+      <!--foot bar-->
+      <div class="mt-10 lg:px-40 px-5 flex justify-center md:mt-20">
+        <!--code with rich features-->
+        <div class="justify-center">
+          <p
+            class="pb-8 text-3xl font-semibold text-textclr flex justify-center"
+          >
+            Code with rich features
+          </p>
+          <p
+            class="text-lghtblutxt sm:text-sm xs:text-xs md:font-semibold sm:font-medium xs:font-medium flex justify-center"
+          >
+            There's a lot more to an editor. Whether it's using built-in
+            features or
+          </p>
+          <p
+            class="text-lghtblutxt sm:text-sm xs:text-xs md:font-semibold sm:font-medium xs:font-medium flex justify-center"
+          >
+            rich extensions, there's something for everyone.
+          </p>
+        </div>
+      </div>
+      <!--last grids-->
+      <div
+        class="w-full grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 grid-flow-row gap-4 lg:px-40 px-5 mt-10 md:mt-20"
+      >
+        <!-- cards -->
+        <div
+          class="rounded-lg bg-iconcrd border border-gray-700 pl-4 h-[240px] w-auto pt-4 hover:cursor-pointer hover:border-gray-600"
+        >
+          <div
+            class="h-12 w-12 border-gray-700 rounded-lg flex justify-center items-center bg-lstcrd"
+          >
+            <img src="/images/codicon-terminal.svg" class="h-6" alt="" />
+          </div>
+          <div>
+            <p class="font-bold text-textclr pb-4 pt-4">Integrated terminal</p>
+            <p class="text-lghtblutxt font-medium w-[215px]">
+              Use your favorite shell whether it's zsh, push, or git bash, all
+              inside the editor.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="rounded-lg bg-iconcrd border border-gray-700 pl-4 h-[240px] w-auto pt-4 hover:cursor-pointer hover:border-gray-600"
+        >
+          <div
+            class="h-12 w-12 border-gray-700 rounded-lg flex justify-center items-center bg-lstcrd"
+          >
+            <img src="/images/codicon-debug.svg" class="h-6" alt="" />
+          </div>
+          <div>
+            <p class="font-bold text-textclr pb-4 pt-4">Run code</p>
+            <p class="text-lghtblutxt font-medium w-[215px]">
+              Run and debug your code without leaving your editor.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="rounded-lg bg-iconcrd border border-gray-700 pl-4 h-[240px] w-auto pt-4 hover:cursor-pointer hover:border-gray-600"
+        >
+          <div
+            class="h-12 w-12 border-gray-700 rounded-lg flex justify-center items-center bg-lstcrd"
+          >
+            <img src="/images/codicon-version-control.svg" class="h-6" alt="" />
+          </div>
+          <div>
+            <p class="font-bold text-textclr pb-4 pt-4">Version control</p>
+            <p class="text-lghtblutxt font-medium w-[215px]">
+              Built-in support for git and many other source control providers.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="rounded-lg bg-iconcrd border border-gray-700 pl-4 h-[240px] w-auto pt-4 hover:cursor-pointer hover:border-gray-600"
+        >
+          <div
+            class="h-12 w-12 border-gray-700 rounded-lg flex justify-center items-center bg-lstcrd"
+          >
+            <img src="/images/codicon-build-tasks.svg" class="h-6" alt="" />
+          </div>
+          <div>
+            <p class="font-bold text-textclr pb-4 pt-4">Build tasks</p>
+            <p class="text-lghtblutxt font-medium w-[215px]">
+              Run tools and analyze their results from within VS Code.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="rounded-lg bg-iconcrd border border-gray-700 pl-4 h-[240px] w-auto pt-4 hover:cursor-pointer hover:border-gray-600"
+        >
+          <div
+            class="h-12 w-12 border-gray-700 rounded-lg flex justify-center items-center bg-lstcrd"
+          >
+            <img src="/images/codicon-local-history.svg" class="h-6" alt="" />
+          </div>
+          <div>
+            <p class="font-bold text-textclr pb-4 pt-4">Local history</p>
+            <p class="text-lghtblutxt font-medium w-[215px]">
+              Never lose your changes with automatically tracked local history.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="rounded-lg bg-iconcrd border border-gray-700 pl-4 h-[240px] w-auto pt-4 hover:cursor-pointer hover:border-gray-600"
+        >
+          <div
+            class="h-12 w-12 border-gray-700 rounded-lg flex justify-center items-center bg-lstcrd"
+          >
+            <img src="/images/codicon-themes.svg" class="h-6" alt="" />
+          </div>
+          <div>
+            <p class="font-bold text-textclr pb-4 pt-4">Themes</p>
+            <p class="text-lghtblutxt font-medium w-[215px]">
+              Your theme is an extension of your personality. Add some flair to
+              your editor and add your touch.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="rounded-lg bg-iconcrd border border-gray-700 pl-4 h-[240px] w-auto pt-4 hover:cursor-pointer hover:border-gray-600"
+        >
+          <div
+            class="h-12 w-12 border-gray-700 rounded-lg flex justify-center items-center bg-lstcrd"
+          >
+            <img src="/images/codicon-accessibility.svg" class="h-6" alt="" />
+          </div>
+          <div>
+            <p class="font-bold text-textclr pb-4 pt-4">Accessibility</p>
+            <p class="text-lghtblutxt font-medium w-[215px]">
+              Optimized experience for screen readers, high contrast themes, and
+              keyboard-only navigation.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="rounded-lg bg-iconcrd border border-gray-700 pl-4 h-[240px] w-auto pt-4 hover:cursor-pointer hover:border-gray-600"
+        >
+          <div
+            class="h-12 w-12 border-gray-700 rounded-lg flex justify-center items-center bg-lstcrd"
+          >
+            <img src="/images/codicon-web.svg" class="h-6" alt="" />
+          </div>
+          <div>
+            <p class="font-bold text-textclr pb-4 pt-4">Web support</p>
+            <p class="text-lghtblutxt font-medium w-[215px]">
+              Whether you are on your phone, tablet, or desktop, you can access
+              your code from anywhere.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--footer 1-->
+      <div class="flex items-center justify-between lg:px-40 p-5">
+        <!--logos-->
+        <div class="flex items-center justify-left gap-5 mt-10">
+          <img
+            src="/images/x-icon.svg"
+            class="w-[15px] hover:cursor-pointer"
+            alt=""
+          />
+          <img
+            src="/images/github-icon.svg"
+            class="hover:cursor-pointer"
+            alt=""
+          />
+          <img
+            src="/images/youtube-icon.svg"
+            class="hover:cursor-pointer"
+            alt=""
+          />
+        </div>
+        <div class="flex items-center justify-end mt-10">
+          <img
+            src="/images/microsoft.svg"
+            class="hover:cursor-pointer"
+            alt=""
+          />
+        </div>
+      </div>
+      <!--footer 2-->
+      <div class="lg:px-40 px-5 mb-20">
+        <!--text links-->
+        <div class="text-lghtblutxt flex gap-5 font-semibold text-xs">
+          <h4 class="hover:cursor-pointer">Support</h4>
+          <h4 class="hover:cursor-pointer">Privacy</h4>
+          <h4 class="hover:cursor-pointer">Terms of Use</h4>
+          <h4 class="hover:cursor-pointer">License</h4>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
