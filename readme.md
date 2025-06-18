@@ -1,6 +1,18 @@
-# VS CODE Clone Website
+# VS-Code Clone (Design Only)
 
-## My project is a **Fully responsive VS Code clone website** built using **HTML and Tailwind CSS**. It replicates the UI of **Visual Studio Code**, featuring a **Nav bars, sidebar, grids in rows and columns , tabs, and a programming languages layout**. Designed with **Tailwind CSS**, it ensures a seamless **responsive experience** across devices. This project showcases **modern web design, UI structuring, and responsive styling**. 🚀
+A fully responsive and visually accurate clone of the Visual Studio Code interface. This project focuses solely on replicating the layout and design, without any functional editor features.
+
+## 🚀 Features
+
+- 🎨 Pixel-perfect design inspired by VS Code
+- 📱 Fully responsive layout for all screen sizes
+- 🧩 Component-based structure (if using React)
+- 💡 Clean and modular CSS/utility-first styling (e.g., Tailwind CSS)
+
+## 🛠️ Tech Stack
+
+- HTML5 / CSS3  
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ## Screenshots
 
